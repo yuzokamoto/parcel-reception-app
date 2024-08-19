@@ -1,5 +1,5 @@
 {
-  "name": "parcel-reception-app",
+  "name": "@parcel-reception-app/source",
   "version": "1.0.0",
   "repository": "https://github.com/yuzokamoto/parcel-reception-app.git",
   "author": "Yuzo <yuzokamoto@gmail.com>",
@@ -16,9 +16,10 @@
     ]
   },
   "devDependencies": {
+    "husky": "^9.1.4",
     "nx": "19.6.0",
     "prettier": "^3.3.3",
-    "husky": "^8.0.0"
+    "prettier-plugin-organize-imports": "^4.0.0"
   },
   "scripts": {
     "format": "prettier  \"{apps,libs,standalone}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
@@ -26,6 +27,7 @@
     "format:write": "yarn format --write",
     "lint": "yarn nx run-many -t lint",
     "tsc": "yarn nx run-many -t tsc",
-    "prepare": "husky install"
+    "validate": "yarn format:write && yarn lint && yarn tsc",
+    "postinstall": "husky"
   }
 }
