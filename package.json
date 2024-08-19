@@ -1,0 +1,31 @@
+{
+  "name": "parcel-reception-app",
+  "version": "1.0.0",
+  "repository": "https://github.com/yuzokamoto/parcel-reception-app.git",
+  "author": "Yuzo <yuzokamoto@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "libs/*"
+    ],
+    "nohoist": [
+      "**/@nestjs",
+      "**/@nestjs/**"
+    ]
+  },
+  "devDependencies": {
+    "nx": "19.6.0",
+    "prettier": "^3.3.3",
+    "husky": "^8.0.0"
+  },
+  "scripts": {
+    "format": "prettier  \"{apps,libs,standalone}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
+    "format:check": "yarn format --check",
+    "format:write": "yarn format --write",
+    "lint": "yarn nx run-many -t lint",
+    "tsc": "yarn nx run-many -t tsc",
+    "prepare": "husky install"
+  }
+}
